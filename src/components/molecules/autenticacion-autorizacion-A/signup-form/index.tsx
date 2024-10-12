@@ -4,50 +4,49 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export default function LoginForm() {
+export default function SignupForm() {
   return (
     <div className="flex items-center justify-center py-12">
       <div className="mx-auto grid w-[350px] gap-6">
         <div className="grid gap-2 text-center">
-          <h1 className="text-3xl font-bold">Login</h1>
-          <p className="text-balance text-muted-foreground">
-            Enter your email below to login to your account
-          </p>
+          <h1 className="text-3xl font-bold">Registrate</h1>
         </div>
         <div className="grid gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">Nombres</Label>
+            <Input id="names" type="text" placeholder="John" required />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="email">Apellidos</Label>
+            <Input id="names" type="text" placeholder="Doe" required />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="email">Correo</Label>
             <Input
               id="email"
               type="email"
-              placeholder="m@example.com"
+              placeholder="mi@correo.com"
               required
             />
           </div>
           <div className="grid gap-2">
             <div className="flex items-center">
-              <Label htmlFor="password">Password</Label>
-              <Link
-                href="/forgot-password"
-                className="ml-auto inline-block text-sm underline"
-              >
-                Forgot your password?
-              </Link>
+              <Label htmlFor="password">Contraseña</Label>
+            </div>
+            <Input id="password" type="password" required />
+          </div>
+          <div className="grid gap-2">
+            <div className="flex items-center">
+              <Label htmlFor="password">Confirmar contraseña</Label>
             </div>
             <Input id="password" type="password" required />
           </div>
           <Button type="submit" className="w-full">
-            Login
+            Registrarse
           </Button>
           <Button variant="outline" className="w-full">
-            Login with Google
+            Registrase con Google
           </Button>
-        </div>
-        <div className="mt-4 text-center text-sm">
-          Don&apos;t have an account?{" "}
-          <Link href="./signup" className="underline">
-            Sign up
-          </Link>
         </div>
       </div>
     </div>

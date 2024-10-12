@@ -1,7 +1,7 @@
+import SignupForm from "@/components/molecules/autenticacion-autorizacion-A/signup-form";
+
 export default function Index() {
     return (
-      <div className='flex justify-center items-center'>
-        formulario de signin
-      </div>
+      <SignupForm />
     );
   }
