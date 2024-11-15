@@ -1,7 +1,6 @@
-// apolloClient.ts
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 
-const client: ApolloClient<any> = new ApolloClient({
+const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   uri: 'http://localhost:8080/graphql', // URL de tu API de Spring Boot
   cache: new InMemoryCache(),
 });
