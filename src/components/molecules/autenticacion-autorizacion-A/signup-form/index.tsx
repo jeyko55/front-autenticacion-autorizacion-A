@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { registerUser } from "@/utils/userService"; // Asegúrate de que la ruta sea correcta
+import Link from "next/link";
 
 export default function SignupForm() {
   const [names, setNames] = useState("");
@@ -23,7 +24,7 @@ export default function SignupForm() {
 
     try {
       const response = await registerUser(names, email, password);
-      if (response) {
+      if (response?.token) {
         setSuccessMessage("Registro exitoso!");
         setError(null);
         // Opcional: limpia los campos del formulario
@@ -31,6 +32,8 @@ export default function SignupForm() {
         setEmail("");
         setPassword("");
         setConfirmPassword("");
+      } else {
+        setError("Hubo un problema al registrarse. Inténtalo de nuevo.");
       }
     } catch (error) {
       setError("Hubo un problema al registrarse. Inténtalo de nuevo.");
@@ -90,7 +93,12 @@ export default function SignupForm() {
 
           {error && <p className="text-red-500 text-center">{error}</p>}
           {successMessage && (
-            <p className="text-green-500 text-center">{successMessage}</p>
+            <div className="text-center">
+              <p className="text-green-500">{successMessage}</p>
+              <Link href="./login" className="text-blue-500 underline">
+                Ir a iniciar sesión
+              </Link>
+            </div>
           )}
 
           <Button type="submit" className="w-full">
